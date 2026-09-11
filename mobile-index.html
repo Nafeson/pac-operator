@@ -1,0 +1,5231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<title>Powered Access Connect | Operator Network</title>
+
+<meta
+name="description"
+content="Join Powered Access Connect and connect with powered-access operator work across the UK. Register your IPAF qualifications, machine experience, availability and travel area."
+>
+
+<meta name="theme-color" content="#07172c">
+
+
+<style>
+/* =========================================================
+POWERED ACCESS CONNECT
+OPERATOR WEBSITE
+MOBILE HOMEPAGE
+
+FILE:
+mobile-index.html
+
+PURPOSE:
+Separate mobile design while the PAC website is being
+developed. This file is intentionally self-contained.
+
+CSS + JavaScript are contained within this file.
+
+IMAGE PATH:
+/images/
+
+CURRENT BRAND ASSETS:
+- pac-logo-blue-orange.png
+- pac-logo-orange.png
+- pac-icon-colour.png
+- pac-icon-white.png
+- pac-connect-logo.png
+- pac-connect-mark.png
+========================================================= */
+
+
+/* =========================================================
+01. BRAND VARIABLES
+========================================================= */
+
+:root {
+--pac-navy: #07172c;
+--pac-navy-deep: #020b15;
+--pac-navy-mid: #0b213c;
+--pac-navy-soft: #102c4c;
+
+--pac-blue: #1877f2;
+--pac-blue-bright: #2689ff;
+--pac-blue-soft: #e7f1ff;
+
+--pac-orange: #f58020;
+--pac-orange-bright: #ff932f;
+--pac-orange-dark: #dd6e12;
+--pac-orange-soft: #fff1e5;
+
+--pac-white: #ffffff;
+
+--pac-grey-025: #fbfcfd;
+--pac-grey-050: #f7f9fb;
+--pac-grey-100: #eff3f7;
+--pac-grey-150: #e9edf2;
+--pac-grey-200: #dfe5eb;
+--pac-grey-300: #cbd3dc;
+--pac-grey-400: #aeb8c3;
+--pac-grey-500: #818d9a;
+--pac-grey-600: #626f7d;
+--pac-grey-700: #465362;
+--pac-grey-800: #293646;
+--pac-grey-900: #111c2b;
+
+--pac-green: #19a866;
+
+--page-gutter: 20px;
+
+--radius-small: 8px;
+--radius-medium: 13px;
+--radius-large: 19px;
+
+--shadow-small:
+0 8px 24px rgba(4, 16, 31, 0.08);
+
+--shadow-card:
+0 16px 42px rgba(4, 16, 31, 0.10);
+
+--shadow-dark:
+0 20px 50px rgba(0, 0, 0, 0.26);
+
+--header-height: 67px;
+
+--transition:
+220ms cubic-bezier(.2, .75, .25, 1);
+}
+
+
+/* =========================================================
+02. RESET / GLOBAL
+========================================================= */
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+background: var(--pac-white);
+}
+
+body {
+width: 100%;
+min-width: 320px;
+
+margin: 0;
+
+overflow-x: hidden;
+
+color: var(--pac-grey-900);
+background: var(--pac-white);
+
+font-family:
+Inter,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+Helvetica,
+Arial,
+sans-serif;
+
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+-webkit-text-size-adjust: 100%;
+}
+
+body.menu-open {
+overflow: hidden;
+}
+
+img {
+display: block;
+max-width: 100%;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+
+-webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+font: inherit;
+}
+
+button {
+-webkit-tap-highlight-color: transparent;
+}
+
+ul {
+list-style: none;
+}
+
+main {
+display: block;
+}
+
+
+/* =========================================================
+03. GLOBAL MOBILE LAYOUT
+========================================================= */
+
+.shell {
+width: 100%;
+
+padding-left:
+max(var(--page-gutter), env(safe-area-inset-left));
+
+padding-right:
+max(var(--page-gutter), env(safe-area-inset-right));
+}
+
+.section {
+position: relative;
+
+padding-top: 74px;
+padding-bottom: 74px;
+}
+
+.section-small {
+padding-top: 58px;
+padding-bottom: 58px;
+}
+
+.section-white {
+background: var(--pac-white);
+}
+
+.section-light {
+background: var(--pac-grey-050);
+}
+
+.section-dark {
+color: var(--pac-white);
+
+background:
+radial-gradient(
+circle at 100% 0%,
+rgba(38, 137, 255, 0.14),
+transparent 35%
+),
+radial-gradient(
+circle at 0% 100%,
+rgba(245, 128, 32, 0.08),
+transparent 35%
+),
+var(--pac-navy);
+}
+
+
+/* =========================================================
+04. GLOBAL TYPOGRAPHY
+========================================================= */
+
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+
+margin-bottom: 14px;
+
+color: var(--pac-orange);
+
+font-size: 10px;
+font-weight: 850;
+line-height: 1.1;
+
+letter-spacing: 0.16em;
+text-transform: uppercase;
+}
+
+.eyebrow::before {
+content: "";
+
+width: 23px;
+height: 2px;
+
+background: currentColor;
+}
+
+.section-title {
+color: var(--pac-navy);
+
+font-size: clamp(30px, 8.5vw, 39px);
+font-weight: 790;
+line-height: 1.07;
+
+letter-spacing: -0.042em;
+}
+
+.section-dark .section-title {
+color: var(--pac-white);
+}
+
+.section-copy {
+margin-top: 17px;
+
+color: var(--pac-grey-600);
+
+font-size: 15px;
+line-height: 1.7;
+}
+
+.section-dark .section-copy {
+color: rgba(255, 255, 255, 0.67);
+}
+
+.orange-text {
+color: var(--pac-orange);
+}
+
+.blue-text {
+color: var(--pac-blue);
+}
+
+
+/* =========================================================
+05. BUTTONS
+========================================================= */
+
+.btn {
+min-height: 52px;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+
+padding: 0 21px;
+
+border: 1px solid transparent;
+border-radius: 9px;
+
+cursor: pointer;
+
+font-size: 12px;
+font-weight: 850;
+
+letter-spacing: 0.055em;
+text-transform: uppercase;
+
+transition:
+transform var(--transition),
+background var(--transition),
+border-color var(--transition),
+color var(--transition),
+box-shadow var(--transition);
+}
+
+.btn:active {
+transform: scale(0.985);
+}
+
+.btn-full {
+width: 100%;
+}
+
+.btn-primary {
+color: var(--pac-white);
+
+background:
+linear-gradient(
+135deg,
+var(--pac-orange),
+var(--pac-orange-bright)
+);
+
+box-shadow:
+0 11px 25px rgba(245, 128, 32, 0.23);
+}
+
+.btn-outline-light {
+color: var(--pac-white);
+
+border-color:
+rgba(255, 255, 255, 0.25);
+
+background:
+rgba(255, 255, 255, 0.035);
+}
+
+.btn-outline-dark {
+color: var(--pac-navy);
+
+border-color: var(--pac-grey-300);
+background: var(--pac-white);
+}
+
+.button-arrow {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+margin-left: 2px;
+
+font-size: 16px;
+line-height: 1;
+}
+
+
+/* =========================================================
+06. TOP TICKER
+========================================================= */
+
+.top-ticker {
+position: relative;
+z-index: 210;
+
+height: 31px;
+
+display: flex;
+align-items: center;
+
+overflow: hidden;
+
+color:
+rgba(255, 255, 255, 0.73);
+
+background: var(--pac-navy-deep);
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.055);
+}
+
+.ticker-track {
+width: 100%;
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.ticker-item {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 100%;
+
+padding: 0 14px;
+
+text-align: center;
+
+font-size: 9px;
+font-weight: 700;
+
+letter-spacing: 0.055em;
+text-transform: uppercase;
+
+white-space: nowrap;
+}
+
+.ticker-dot {
+width: 6px;
+height: 6px;
+
+margin-right: 7px;
+
+flex: 0 0 6px;
+
+border-radius: 50%;
+
+background: var(--pac-green);
+
+box-shadow:
+0 0 0 3px rgba(25, 168, 102, 0.11);
+}
+
+.ticker-orange {
+margin-left: 4px;
+
+color: var(--pac-orange);
+}
+
+
+/* =========================================================
+07. STICKY MOBILE HEADER
+========================================================= */
+
+.mobile-header {
+position: sticky;
+top: 0;
+
+z-index: 200;
+
+height: var(--header-height);
+
+color: var(--pac-white);
+
+background:
+rgba(7, 23, 44, 0.98);
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.08);
+
+backdrop-filter: blur(13px);
+
+box-shadow:
+0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-header-inner {
+height: 100%;
+
+display: grid;
+
+grid-template-columns:
+48px 1fr 48px;
+
+align-items: center;
+
+padding-left:
+max(11px, env(safe-area-inset-left));
+
+padding-right:
+max(11px, env(safe-area-inset-right));
+}
+
+.menu-button,
+.profile-button {
+position: relative;
+
+width: 44px;
+height: 44px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: 0;
+border-radius: 9px;
+
+color: var(--pac-white);
+
+background: transparent;
+
+cursor: pointer;
+}
+
+
+/* HAMBURGER */
+
+.hamburger {
+position: relative;
+
+width: 22px;
+height: 16px;
+}
+
+.hamburger span {
+position: absolute;
+left: 0;
+
+width: 22px;
+height: 2px;
+
+border-radius: 2px;
+
+background: var(--pac-white);
+
+transition:
+transform 220ms ease,
+opacity 180ms ease,
+top 220ms ease;
+}
+
+.hamburger span:nth-child(1) {
+top: 0;
+}
+
+.hamburger span:nth-child(2) {
+top: 7px;
+}
+
+.hamburger span:nth-child(3) {
+top: 14px;
+}
+
+.menu-button.open .hamburger span:nth-child(1) {
+top: 7px;
+transform: rotate(45deg);
+}
+
+.menu-button.open .hamburger span:nth-child(2) {
+opacity: 0;
+}
+
+.menu-button.open .hamburger span:nth-child(3) {
+top: 7px;
+transform: rotate(-45deg);
+}
+
+
+/* HEADER LOGO */
+
+.mobile-brand {
+min-width: 0;
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.mobile-brand img {
+width: min(205px, 59vw);
+height: auto;
+}
+
+
+/* PROFILE / LOGIN ICON */
+
+.profile-ring {
+width: 29px;
+height: 29px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border:
+1px solid rgba(255, 255, 255, 0.24);
+
+border-radius: 50%;
+}
+
+.profile-symbol {
+position: relative;
+
+width: 14px;
+height: 15px;
+}
+
+.profile-symbol::before {
+content: "";
+
+position: absolute;
+
+left: 4px;
+top: 0;
+
+width: 6px;
+height: 6px;
+
+border:
+1.6px solid var(--pac-white);
+
+border-radius: 50%;
+}
+
+.profile-symbol::after {
+content: "";
+
+position: absolute;
+
+left: 1px;
+bottom: 0;
+
+width: 12px;
+height: 7px;
+
+border:
+1.6px solid var(--pac-white);
+
+border-bottom: 0;
+
+border-radius:
+8px 8px 0 0;
+}
+
+
+/* =========================================================
+08. MOBILE MENU DRAWER
+========================================================= */
+
+.menu-overlay {
+position: fixed;
+inset: 0;
+
+z-index: 185;
+
+visibility: hidden;
+
+opacity: 0;
+
+background:
+rgba(1, 8, 15, 0.63);
+
+backdrop-filter: blur(2px);
+
+transition:
+opacity 240ms ease,
+visibility 240ms ease;
+}
+
+.menu-overlay.open {
+visibility: visible;
+opacity: 1;
+}
+
+.mobile-menu {
+position: fixed;
+
+z-index: 190;
+
+left: 0;
+top: calc(31px + var(--header-height));
+
+bottom: 0;
+
+width: min(86vw, 360px);
+
+overflow-y: auto;
+overscroll-behavior: contain;
+
+color: var(--pac-white);
+
+background:
+linear-gradient(
+180deg,
+#07172c,
+#030d19
+);
+
+border-right:
+1px solid rgba(255, 255, 255, 0.08);
+
+box-shadow:
+24px 0 60px rgba(0, 0, 0, 0.26);
+
+transform: translateX(-103%);
+
+transition:
+transform 290ms
+cubic-bezier(.2, .74, .18, 1);
+}
+
+.mobile-menu.open {
+transform: translateX(0);
+}
+
+.mobile-menu-inner {
+min-height: 100%;
+
+display: flex;
+flex-direction: column;
+
+padding:
+22px 20px
+calc(28px + env(safe-area-inset-bottom));
+}
+
+.menu-logo-wrap {
+display: flex;
+align-items: center;
+
+min-height: 48px;
+
+padding-bottom: 20px;
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-logo {
+width: 194px;
+}
+
+.menu-label {
+margin-top: 24px;
+margin-bottom: 8px;
+
+color:
+rgba(255, 255, 255, 0.34);
+
+font-size: 9px;
+font-weight: 850;
+
+letter-spacing: 0.15em;
+text-transform: uppercase;
+}
+
+.menu-links {
+display: grid;
+}
+
+.menu-link {
+min-height: 51px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.065);
+
+color:
+rgba(255, 255, 255, 0.78);
+
+font-size: 13px;
+font-weight: 680;
+}
+
+.menu-link.active {
+color: var(--pac-white);
+}
+
+.menu-link.active .menu-link-arrow {
+color: var(--pac-orange);
+}
+
+.menu-link-arrow {
+color:
+rgba(255, 255, 255, 0.32);
+
+font-size: 17px;
+}
+
+.menu-actions {
+display: grid;
+gap: 9px;
+
+margin-top: 24px;
+}
+
+.menu-support {
+margin-top: auto;
+padding-top: 30px;
+}
+
+.menu-support-card {
+padding: 17px;
+
+border:
+1px solid rgba(255, 255, 255, 0.08);
+
+border-radius: 11px;
+
+background:
+rgba(255, 255, 255, 0.035);
+}
+
+.menu-support-title {
+color: var(--pac-white);
+
+font-size: 12px;
+font-weight: 800;
+}
+
+.menu-support-copy {
+margin-top: 5px;
+
+color:
+rgba(255, 255, 255, 0.48);
+
+font-size: 11px;
+line-height: 1.55;
+}
+
+
+/* =========================================================
+09. HERO
+========================================================= */
+
+.hero {
+position: relative;
+
+overflow: hidden;
+
+color: var(--pac-white);
+
+background:
+linear-gradient(
+155deg,
+#04101f 0%,
+#07172c 52%,
+#0b2846 100%
+);
+}
+
+.hero::before {
+content: "";
+
+position: absolute;
+inset: 0;
+
+opacity: 0.25;
+
+background-image:
+linear-gradient(
+rgba(255, 255, 255, 0.035) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255, 255, 255, 0.035) 1px,
+transparent 1px
+);
+
+background-size: 43px 43px;
+
+pointer-events: none;
+}
+
+.hero::after {
+content: "";
+
+position: absolute;
+
+width: 430px;
+height: 430px;
+
+right: -245px;
+top: -90px;
+
+border-radius: 50%;
+
+background:
+radial-gradient(
+circle,
+rgba(38, 137, 255, 0.20),
+rgba(38, 137, 255, 0.05) 46%,
+transparent 70%
+);
+
+pointer-events: none;
+}
+
+.hero-inner {
+position: relative;
+z-index: 2;
+
+padding-top: 49px;
+padding-bottom: 48px;
+}
+
+.hero-kicker {
+display: flex;
+align-items: center;
+gap: 8px;
+
+margin-bottom: 17px;
+
+color: var(--pac-orange);
+
+font-size: 9px;
+font-weight: 850;
+
+letter-spacing: 0.16em;
+text-transform: uppercase;
+}
+
+.hero-kicker::before {
+content: "";
+
+width: 23px;
+height: 2px;
+
+background: var(--pac-orange);
+}
+
+.hero h1 {
+max-width: 360px;
+
+font-size: clamp(44px, 13vw, 61px);
+font-weight: 820;
+line-height: 0.95;
+
+letter-spacing: -0.058em;
+}
+
+.hero h1 span {
+display: block;
+
+margin-top: 4px;
+
+color: var(--pac-orange);
+}
+
+.hero-lead {
+max-width: 390px;
+
+margin-top: 21px;
+
+color:
+rgba(255, 255, 255, 0.69);
+
+font-size: 15px;
+line-height: 1.67;
+}
+
+.hero-actions {
+display: grid;
+gap: 9px;
+
+margin-top: 27px;
+}
+
+.hero-benefits {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+gap: 9px 15px;
+
+margin-top: 25px;
+}
+
+.hero-benefit {
+display: flex;
+align-items: center;
+gap: 7px;
+
+color:
+rgba(255, 255, 255, 0.57);
+
+font-size: 10px;
+font-weight: 650;
+
+line-height: 1.35;
+}
+
+.hero-check {
+flex: 0 0 18px;
+
+width: 18px;
+height: 18px;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+border:
+1px solid rgba(25, 168, 102, 0.42);
+
+border-radius: 50%;
+
+color: var(--pac-white);
+
+background:
+rgba(25, 168, 102, 0.13);
+
+font-size: 9px;
+font-weight: 900;
+}
+
+
+/* HERO BRAND VISUAL */
+
+.hero-brand-visual {
+position: relative;
+
+height: 275px;
+
+margin-top: 37px;
+}
+
+.hero-orbit {
+position: absolute;
+
+left: 50%;
+top: 50%;
+
+width: 245px;
+height: 245px;
+
+transform:
+translate(-50%, -50%);
+
+border:
+1px solid rgba(255, 255, 255, 0.075);
+
+border-radius: 50%;
+}
+
+.hero-orbit::before,
+.hero-orbit::after {
+content: "";
+
+position: absolute;
+
+border-radius: 50%;
+
+border:
+1px solid rgba(255, 255, 255, 0.045);
+}
+
+.hero-orbit::before {
+inset: 26px;
+}
+
+.hero-orbit::after {
+inset: 57px;
+}
+
+.hero-logo-card {
+position: absolute;
+
+left: 50%;
+top: 50%;
+
+width: 190px;
+height: 190px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+transform:
+translate(-50%, -50%);
+
+border:
+1px solid rgba(255, 255, 255, 0.11);
+
+border-radius: 24px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255, 255, 255, 0.08),
+rgba(255, 255, 255, 0.025)
+);
+
+box-shadow:
+0 25px 55px rgba(0, 0, 0, 0.27);
+
+backdrop-filter: blur(8px);
+}
+
+.hero-logo-card::before {
+content: "";
+
+position: absolute;
+inset: 10px;
+
+border:
+1px solid rgba(255, 255, 255, 0.04);
+
+border-radius: 18px;
+}
+
+.hero-icon {
+position: relative;
+z-index: 2;
+
+width: 103px;
+}
+
+.hero-icon-label {
+position: relative;
+z-index: 2;
+
+margin-top: 17px;
+
+color:
+rgba(255, 255, 255, 0.49);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.18em;
+text-transform: uppercase;
+}
+
+.hero-float {
+position: absolute;
+z-index: 5;
+
+padding: 10px 12px;
+
+border:
+1px solid rgba(255, 255, 255, 0.09);
+
+border-radius: 9px;
+
+background:
+rgba(8, 29, 52, 0.95);
+
+box-shadow:
+0 13px 34px rgba(0, 0, 0, 0.23);
+}
+
+.hero-float-label {
+color:
+rgba(255, 255, 255, 0.42);
+
+font-size: 7px;
+font-weight: 850;
+
+letter-spacing: 0.09em;
+text-transform: uppercase;
+}
+
+.hero-float-value {
+margin-top: 4px;
+
+color: var(--pac-white);
+
+font-size: 10px;
+font-weight: 780;
+}
+
+.hero-float.orange
+.hero-float-value {
+color: var(--pac-orange);
+}
+
+.hero-float.blue
+.hero-float-value {
+color: var(--pac-blue-bright);
+}
+
+.hero-float.float-one {
+top: 18px;
+right: 0;
+}
+
+.hero-float.float-two {
+left: 0;
+bottom: 26px;
+}
+
+.hero-float.float-three {
+right: 5px;
+bottom: 0;
+}
+
+
+/* =========================================================
+10. QUICK BENEFIT STRIP
+========================================================= */
+
+.quick-benefits {
+position: relative;
+z-index: 5;
+
+background: var(--pac-white);
+
+border-bottom:
+1px solid var(--pac-grey-150);
+}
+
+.quick-benefit-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.quick-benefit {
+min-height: 99px;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+padding: 17px 16px;
+
+border-bottom:
+1px solid var(--pac-grey-150);
+}
+
+.quick-benefit:nth-child(odd) {
+border-right:
+1px solid var(--pac-grey-150);
+}
+
+.quick-benefit:nth-last-child(-n+2) {
+border-bottom: 0;
+}
+
+.quick-benefit-icon {
+width: 31px;
+height: 31px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+margin-bottom: 10px;
+
+border-radius: 8px;
+
+color: var(--pac-orange);
+
+background: var(--pac-orange-soft);
+
+font-size: 13px;
+font-weight: 900;
+}
+
+.quick-benefit:nth-child(even)
+.quick-benefit-icon {
+color: var(--pac-blue);
+
+background: var(--pac-blue-soft);
+}
+
+.quick-benefit-title {
+color: var(--pac-navy);
+
+font-size: 12px;
+font-weight: 800;
+}
+
+.quick-benefit-copy {
+margin-top: 4px;
+
+color: var(--pac-grey-500);
+
+font-size: 10px;
+line-height: 1.45;
+}
+
+
+/* =========================================================
+11. HOW PAC WORKS
+========================================================= */
+
+.steps {
+display: grid;
+gap: 11px;
+
+margin-top: 34px;
+}
+
+.step-card {
+position: relative;
+
+display: grid;
+grid-template-columns: 48px 1fr;
+
+gap: 14px;
+
+padding: 20px;
+
+border:
+1px solid var(--pac-grey-200);
+
+border-radius: 13px;
+
+background: var(--pac-white);
+
+box-shadow:
+0 7px 20px rgba(4, 16, 31, 0.035);
+}
+
+.step-number {
+width: 44px;
+height: 44px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 10px;
+
+color: var(--pac-white);
+
+background: var(--pac-navy);
+
+font-size: 13px;
+font-weight: 850;
+}
+
+.step-card:nth-child(2)
+.step-number {
+background: var(--pac-blue);
+}
+
+.step-card:nth-child(3)
+.step-number {
+background: var(--pac-orange);
+}
+
+.step-card:nth-child(4)
+.step-number {
+background: var(--pac-blue);
+}
+
+.step-content {
+min-width: 0;
+}
+
+.step-title {
+color: var(--pac-navy);
+
+font-size: 15px;
+font-weight: 790;
+
+letter-spacing: -0.015em;
+}
+
+.step-copy {
+margin-top: 7px;
+
+color: var(--pac-grey-600);
+
+font-size: 12px;
+line-height: 1.62;
+}
+
+
+/* =========================================================
+12. WHY JOIN PAC
+========================================================= */
+
+.why-visual {
+position: relative;
+
+min-height: 325px;
+
+overflow: hidden;
+
+margin-bottom: 38px;
+
+border-radius: 17px;
+
+background:
+linear-gradient(
+150deg,
+#07182e,
+#123456
+);
+
+box-shadow:
+0 20px 50px rgba(7, 23, 44, 0.18);
+}
+
+.why-visual-grid {
+position: absolute;
+inset: 0;
+
+opacity: 0.35;
+
+background-image:
+linear-gradient(
+rgba(255, 255, 255, 0.04) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255, 255, 255, 0.04) 1px,
+transparent 1px
+);
+
+background-size: 39px 39px;
+}
+
+.why-visual img {
+position: absolute;
+
+left: 50%;
+top: 42%;
+
+width: 136px;
+
+transform:
+translate(-50%, -50%);
+}
+
+.why-visual-copy {
+position: absolute;
+
+left: 23px;
+right: 23px;
+bottom: 22px;
+}
+
+.why-visual-title {
+color: var(--pac-white);
+
+font-size: 18px;
+font-weight: 790;
+
+letter-spacing: -0.02em;
+}
+
+.why-visual-text {
+max-width: 300px;
+
+margin-top: 7px;
+
+color:
+rgba(255, 255, 255, 0.55);
+
+font-size: 11px;
+line-height: 1.6;
+}
+
+.why-points {
+display: grid;
+
+margin-top: 27px;
+}
+
+.why-point {
+display: grid;
+grid-template-columns: 39px 1fr;
+
+gap: 13px;
+
+padding: 17px 0;
+
+border-bottom:
+1px solid var(--pac-grey-200);
+}
+
+.why-point:last-child {
+border-bottom: 0;
+}
+
+.why-point-icon {
+width: 37px;
+height: 37px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 9px;
+
+color: var(--pac-blue);
+
+background: var(--pac-blue-soft);
+
+font-size: 11px;
+font-weight: 900;
+}
+
+.why-point:nth-child(even)
+.why-point-icon {
+color: var(--pac-orange);
+
+background: var(--pac-orange-soft);
+}
+
+.why-point-title {
+color: var(--pac-navy);
+
+font-size: 14px;
+font-weight: 790;
+}
+
+.why-point-copy {
+margin-top: 5px;
+
+color: var(--pac-grey-600);
+
+font-size: 11px;
+line-height: 1.58;
+}
+
+
+/* =========================================================
+13. EXPERIENCE MATTERS
+========================================================= */
+
+.experience-note {
+margin-top: 22px;
+
+padding: 16px 16px 16px 17px;
+
+border-left:
+3px solid var(--pac-orange);
+
+border-radius:
+0 9px 9px 0;
+
+color:
+rgba(255, 255, 255, 0.63);
+
+background:
+rgba(255, 255, 255, 0.035);
+
+font-size: 11px;
+line-height: 1.62;
+}
+
+.experience-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+gap: 9px;
+
+margin-top: 32px;
+}
+
+.experience-card {
+min-height: 154px;
+
+padding: 17px;
+
+border:
+1px solid rgba(255, 255, 255, 0.085);
+
+border-radius: 12px;
+
+background:
+rgba(255, 255, 255, 0.045);
+}
+
+.experience-value {
+color: var(--pac-white);
+
+font-size: 17px;
+font-weight: 790;
+}
+
+.experience-label {
+margin-top: 6px;
+
+color: var(--pac-orange);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.095em;
+text-transform: uppercase;
+}
+
+.experience-card-copy {
+margin-top: 10px;
+
+color:
+rgba(255, 255, 255, 0.52);
+
+font-size: 10px;
+line-height: 1.55;
+}
+
+
+/* =========================================================
+14. EXAMPLE ASSIGNMENT
+========================================================= */
+
+.assignment-card {
+margin-top: 30px;
+
+padding: 20px;
+
+border:
+1px solid var(--pac-grey-200);
+
+border-radius: 15px;
+
+background: var(--pac-white);
+
+box-shadow: var(--shadow-card);
+}
+
+.assignment-top {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+
+gap: 15px;
+
+padding-bottom: 16px;
+
+border-bottom:
+1px solid var(--pac-grey-150);
+}
+
+.assignment-badge {
+display: inline-flex;
+
+padding: 6px 8px;
+
+border-radius: 999px;
+
+color: var(--pac-blue);
+
+background: var(--pac-blue-soft);
+
+font-size: 7px;
+font-weight: 850;
+
+letter-spacing: 0.095em;
+text-transform: uppercase;
+}
+
+.assignment-title {
+margin-top: 8px;
+
+color: var(--pac-navy);
+
+font-size: 18px;
+font-weight: 790;
+
+letter-spacing: -0.025em;
+}
+
+.assignment-distance {
+padding-top: 2px;
+
+color: var(--pac-grey-500);
+
+font-size: 9px;
+font-weight: 700;
+
+white-space: nowrap;
+}
+
+.assignment-details {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+margin-top: 2px;
+}
+
+.assignment-detail {
+min-width: 0;
+
+padding: 14px 7px 13px 0;
+
+border-bottom:
+1px solid var(--pac-grey-100);
+}
+
+.assignment-detail:nth-child(even) {
+padding-left: 9px;
+}
+
+.assignment-detail-label {
+color: var(--pac-grey-500);
+
+font-size: 7px;
+font-weight: 850;
+
+letter-spacing: 0.095em;
+text-transform: uppercase;
+}
+
+.assignment-detail-value {
+margin-top: 5px;
+
+color: var(--pac-navy);
+
+font-size: 11px;
+font-weight: 740;
+
+line-height: 1.35;
+}
+
+.assignment-pay {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+
+gap: 15px;
+
+margin-top: 18px;
+}
+
+.assignment-pay-label {
+color: var(--pac-grey-500);
+
+font-size: 8px;
+font-weight: 800;
+
+letter-spacing: 0.07em;
+text-transform: uppercase;
+}
+
+.assignment-pay-value {
+margin-top: 3px;
+
+color: var(--pac-orange);
+
+font-size: 27px;
+font-weight: 850;
+
+letter-spacing: -0.04em;
+}
+
+.assignment-actions {
+display: flex;
+gap: 7px;
+}
+
+.assignment-button {
+min-width: 74px;
+height: 39px;
+
+padding: 0 10px;
+
+border:
+1px solid var(--pac-grey-300);
+
+border-radius: 7px;
+
+color: var(--pac-grey-600);
+background: var(--pac-white);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.06em;
+text-transform: uppercase;
+}
+
+.assignment-button.accept {
+border-color: var(--pac-orange);
+
+color: var(--pac-white);
+background: var(--pac-orange);
+}
+
+.control-list {
+display: grid;
+gap: 10px;
+
+margin-top: 27px;
+}
+
+.control-item {
+display: grid;
+grid-template-columns: 21px 1fr;
+
+gap: 10px;
+align-items: start;
+
+color: var(--pac-grey-700);
+
+font-size: 11px;
+line-height: 1.55;
+}
+
+.control-check {
+width: 21px;
+height: 21px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 50%;
+
+color: var(--pac-white);
+background: var(--pac-blue);
+
+font-size: 9px;
+font-weight: 900;
+}
+
+
+/* =========================================================
+15. SAFETY SECTION
+========================================================= */
+
+.safety-statement {
+margin-top: 23px;
+
+color: var(--pac-white);
+
+font-size: 18px;
+font-weight: 720;
+line-height: 1.43;
+
+letter-spacing: -0.02em;
+}
+
+.safety-statement strong {
+color: var(--pac-orange);
+}
+
+.safety-panel {
+margin-top: 31px;
+
+padding: 20px;
+
+border:
+1px solid rgba(255, 255, 255, 0.09);
+
+border-radius: 14px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255, 255, 255, 0.065),
+rgba(255, 255, 255, 0.025)
+);
+}
+
+.safety-panel-title {
+color: var(--pac-white);
+
+font-size: 15px;
+font-weight: 790;
+
+line-height: 1.4;
+}
+
+.safety-list {
+display: grid;
+
+margin-top: 18px;
+}
+
+.safety-item {
+display: grid;
+grid-template-columns: 25px 1fr;
+
+gap: 10px;
+
+padding: 12px 0;
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.065);
+
+color:
+rgba(255, 255, 255, 0.61);
+
+font-size: 10px;
+line-height: 1.52;
+}
+
+.safety-item:last-child {
+padding-bottom: 0;
+border-bottom: 0;
+}
+
+.safety-icon {
+width: 23px;
+height: 23px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 6px;
+
+color: var(--pac-orange);
+
+background:
+rgba(245, 128, 32, 0.105);
+
+font-size: 10px;
+font-weight: 900;
+}
+
+
+/* =========================================================
+16. MACHINE / WORK CATEGORIES
+========================================================= */
+
+.category-list {
+display: grid;
+gap: 9px;
+
+margin-top: 30px;
+}
+
+.category-card {
+position: relative;
+
+overflow: hidden;
+
+padding: 19px 18px 18px;
+
+border:
+1px solid var(--pac-grey-200);
+
+border-radius: 12px;
+
+background: var(--pac-white);
+}
+
+.category-card::after {
+content: "";
+
+position: absolute;
+
+top: 0;
+right: 0;
+
+width: 48px;
+height: 48px;
+
+background:
+linear-gradient(
+225deg,
+rgba(24, 119, 242, 0.075),
+transparent 65%
+);
+}
+
+.category-index {
+color: var(--pac-orange);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.11em;
+}
+
+.category-title {
+margin-top: 9px;
+
+color: var(--pac-navy);
+
+font-size: 15px;
+font-weight: 790;
+}
+
+.category-copy {
+margin-top: 7px;
+
+color: var(--pac-grey-600);
+
+font-size: 11px;
+line-height: 1.57;
+}
+
+
+/* =========================================================
+17. REGISTER ONCE
+========================================================= */
+
+.registration-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+gap: 8px;
+
+margin-top: 31px;
+}
+
+.registration-card {
+min-height: 89px;
+
+padding: 15px;
+
+border:
+1px solid var(--pac-grey-150);
+
+border-radius: 10px;
+
+background: var(--pac-white);
+}
+
+.registration-number {
+color: var(--pac-blue);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.1em;
+}
+
+.registration-title {
+margin-top: 9px;
+
+color: var(--pac-navy);
+
+font-size: 11px;
+font-weight: 790;
+
+line-height: 1.35;
+}
+
+.registration-detail {
+margin-top: 20px;
+
+color: var(--pac-grey-600);
+
+font-size: 12px;
+line-height: 1.65;
+}
+
+.registration-button {
+margin-top: 23px;
+}
+
+
+/* =========================================================
+18. PAC CONNECTION BRAND PANEL
+========================================================= */
+
+.connection-panel {
+position: relative;
+
+overflow: hidden;
+
+padding: 38px 22px;
+
+border-radius: 17px;
+
+color: var(--pac-white);
+
+background:
+linear-gradient(
+145deg,
+#061529,
+#0d2947
+);
+
+box-shadow:
+0 18px 50px rgba(7, 23, 44, 0.17);
+}
+
+.connection-mark {
+position: absolute;
+
+width: 190px;
+
+right: -56px;
+top: 50%;
+
+opacity: 0.105;
+
+transform:
+translateY(-50%);
+}
+
+.connection-content {
+position: relative;
+z-index: 2;
+
+max-width: 270px;
+}
+
+.connection-logo {
+width: 152px;
+
+margin-bottom: 22px;
+}
+
+.connection-title {
+font-size: 24px;
+font-weight: 790;
+line-height: 1.08;
+
+letter-spacing: -0.035em;
+}
+
+.connection-copy {
+margin-top: 12px;
+
+color:
+rgba(255, 255, 255, 0.60);
+
+font-size: 11px;
+line-height: 1.63;
+}
+
+
+/* =========================================================
+19. FINAL CTA
+========================================================= */
+
+.final-cta {
+position: relative;
+
+overflow: hidden;
+
+padding: 57px 0;
+
+color: var(--pac-white);
+
+background:
+linear-gradient(
+150deg,
+#07182d,
+#0d2b4b
+);
+}
+
+.final-cta::after {
+content: "";
+
+position: absolute;
+
+width: 300px;
+height: 300px;
+
+right: -150px;
+top: -130px;
+
+border-radius: 50%;
+
+background:
+radial-gradient(
+circle,
+rgba(245, 128, 32, 0.22),
+transparent 68%
+);
+}
+
+.final-cta-inner {
+position: relative;
+z-index: 2;
+}
+
+.final-cta-icon {
+width: 53px;
+
+margin-bottom: 20px;
+}
+
+.final-cta-title {
+max-width: 360px;
+
+font-size: 32px;
+font-weight: 790;
+line-height: 1.08;
+
+letter-spacing: -0.043em;
+}
+
+.final-cta-copy {
+margin-top: 14px;
+
+color:
+rgba(255, 255, 255, 0.62);
+
+font-size: 12px;
+line-height: 1.65;
+}
+
+.final-cta-actions {
+display: grid;
+gap: 9px;
+
+margin-top: 25px;
+}
+
+
+/* =========================================================
+20. MOBILE FOOTER
+========================================================= */
+
+.site-footer {
+color:
+rgba(255, 255, 255, 0.55);
+
+background: var(--pac-navy-deep);
+}
+
+.footer-brand {
+padding-top: 47px;
+padding-bottom: 35px;
+
+border-bottom:
+1px solid rgba(255, 255, 255, 0.075);
+}
+
+.footer-main-logo {
+width: 228px;
+}
+
+.footer-brand-copy {
+max-width: 330px;
+
+margin-top: 17px;
+
+color:
+rgba(255, 255, 255, 0.48);
+
+font-size: 11px;
+line-height: 1.7;
+}
+
+.footer-connect-logo {
+width: 144px;
+
+margin-top: 20px;
+
+opacity: 0.48;
+}
+
+
+/* FOOTER ACCORDIONS */
+
+.footer-groups {
+border-bottom:
+1px solid rgba(255, 255, 255, 0.075);
+}
+
+.footer-group {
+border-bottom:
+1px solid rgba(255, 255, 255, 0.065);
+}
+
+.footer-group:last-child {
+border-bottom: 0;
+}
+
+.footer-group-button {
+width: 100%;
+min-height: 57px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 15px;
+
+border: 0;
+
+color: var(--pac-white);
+background: transparent;
+
+cursor: pointer;
+
+text-align: left;
+
+font-size: 10px;
+font-weight: 850;
+
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+.footer-plus {
+position: relative;
+
+width: 17px;
+height: 17px;
+
+flex: 0 0 17px;
+}
+
+.footer-plus::before,
+.footer-plus::after {
+content: "";
+
+position: absolute;
+
+left: 50%;
+top: 50%;
+
+width: 13px;
+height: 1px;
+
+background:
+rgba(255, 255, 255, 0.58);
+
+transform:
+translate(-50%, -50%);
+
+transition:
+transform 220ms ease,
+opacity 180ms ease;
+}
+
+.footer-plus::after {
+transform:
+translate(-50%, -50%)
+rotate(90deg);
+}
+
+.footer-group.open
+.footer-plus::after {
+opacity: 0;
+
+transform:
+translate(-50%, -50%)
+rotate(0deg);
+}
+
+.footer-group-content {
+max-height: 0;
+
+overflow: hidden;
+
+transition:
+max-height 300ms ease;
+}
+
+.footer-links {
+display: grid;
+gap: 0;
+
+padding-bottom: 15px;
+}
+
+.footer-link {
+min-height: 38px;
+
+display: flex;
+align-items: center;
+
+color:
+rgba(255, 255, 255, 0.47);
+
+font-size: 11px;
+}
+
+.footer-contact-line {
+padding: 9px 0 14px;
+}
+
+.footer-contact-label {
+display: block;
+
+margin-bottom: 4px;
+
+color:
+rgba(255, 255, 255, 0.30);
+
+font-size: 8px;
+font-weight: 850;
+
+letter-spacing: 0.09em;
+text-transform: uppercase;
+}
+
+.footer-contact-value {
+color:
+rgba(255, 255, 255, 0.51);
+
+font-size: 11px;
+}
+
+
+/* FOOTER LOWER */
+
+.footer-legal {
+padding-top: 29px;
+padding-bottom:
+calc(30px + env(safe-area-inset-bottom));
+}
+
+.footer-legal-links {
+display: flex;
+flex-wrap: wrap;
+gap: 12px 18px;
+}
+
+.footer-legal-links a {
+color:
+rgba(255, 255, 255, 0.34);
+
+font-size: 9px;
+}
+
+.footer-copyright {
+margin-top: 20px;
+
+color:
+rgba(255, 255, 255, 0.28);
+
+font-size: 9px;
+line-height: 1.6;
+}
+
+
+/* =========================================================
+21. STICKY BOTTOM REGISTER BAR
+========================================================= */
+
+.mobile-register-bar {
+position: fixed;
+
+z-index: 150;
+
+left: 0;
+right: 0;
+bottom: 0;
+
+display: flex;
+
+padding:
+8px
+max(10px, env(safe-area-inset-right))
+calc(8px + env(safe-area-inset-bottom))
+max(10px, env(safe-area-inset-left));
+
+border-top:
+1px solid rgba(255, 255, 255, 0.09);
+
+background:
+rgba(4, 16, 31, 0.97);
+
+backdrop-filter: blur(12px);
+
+box-shadow:
+0 -9px 27px rgba(0, 0, 0, 0.16);
+
+transform: translateY(120%);
+
+transition:
+transform 280ms ease;
+}
+
+.mobile-register-bar.visible {
+transform: translateY(0);
+}
+
+.mobile-register-bar a {
+width: 100%;
+min-height: 47px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+border-radius: 8px;
+
+color: var(--pac-white);
+
+background:
+linear-gradient(
+135deg,
+var(--pac-orange),
+var(--pac-orange-bright)
+);
+
+font-size: 11px;
+font-weight: 850;
+
+letter-spacing: 0.055em;
+text-transform: uppercase;
+}
+
+
+/* =========================================================
+22. SCROLL REVEALS
+========================================================= */
+
+.reveal {
+opacity: 0;
+
+transform:
+translateY(15px);
+
+transition:
+opacity 560ms ease,
+transform 560ms ease;
+}
+
+.reveal.visible {
+opacity: 1;
+
+transform:
+translateY(0);
+}
+
+.reveal-delay-1 {
+transition-delay: 65ms;
+}
+
+.reveal-delay-2 {
+transition-delay: 130ms;
+}
+
+.reveal-delay-3 {
+transition-delay: 195ms;
+}
+
+
+/* =========================================================
+23. ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+outline:
+3px solid rgba(38, 137, 255, 0.68);
+
+outline-offset: 3px;
+}
+
+.skip-link {
+position: fixed;
+
+z-index: 9999;
+
+left: 12px;
+top: -90px;
+
+padding: 10px 14px;
+
+border-radius: 7px;
+
+color: var(--pac-white);
+background: var(--pac-blue);
+}
+
+.skip-link:focus {
+top: 12px;
+}
+
+
+/* =========================================================
+24. SLIGHTLY WIDER PHONES ONLY
+
+This does not create a tablet/desktop layout.
+It only stops unusually wide phones looking stretched.
+========================================================= */
+
+@media (min-width: 520px) {
+
+:root {
+--page-gutter: 28px;
+}
+
+.hero-inner,
+.section > .shell,
+.final-cta > .shell,
+.site-footer > .shell,
+.quick-benefits > .shell {
+max-width: 560px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.footer-brand .shell,
+.footer-groups .shell,
+.footer-legal .shell {
+max-width: 560px;
+margin-left: auto;
+margin-right: auto;
+}
+
+}
+
+
+/* =========================================================
+25. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+html {
+scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+
+.reveal {
+opacity: 1;
+transform: none;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<a
+class="skip-link"
+href="#main-content"
+>
+Skip to content
+</a>
+
+
+<!-- =======================================================
+TOP TICKER
+======================================================= -->
+
+<div class="top-ticker">
+
+<div class="ticker-track">
+
+<div class="ticker-item">
+<span class="ticker-dot"></span>
+Building the UK's powered-access operator network
+<span class="ticker-orange">• Join PAC</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+MOBILE HEADER
+======================================================= -->
+
+<header class="mobile-header">
+
+<div class="mobile-header-inner">
+
+
+<!-- MENU -->
+
+<button
+class="menu-button"
+id="menuButton"
+type="button"
+aria-label="Open navigation"
+aria-expanded="false"
+aria-controls="mobileMenu"
+>
+
+<span class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</span>
+
+</button>
+
+
+<!-- LOGO -->
+
+<a
+href="#"
+class="mobile-brand"
+aria-label="Powered Access Connect homepage"
+>
+
+<img
+src="images/pac-logo-blue-orange.png"
+alt="Powered Access Connect"
+>
+
+</a>
+
+
+<!-- LOGIN -->
+
+<a
+href="#"
+class="profile-button"
+aria-label="Operator login"
+>
+
+<span class="profile-ring">
+<span class="profile-symbol"></span>
+</span>
+
+</a>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+MENU OVERLAY
+======================================================= -->
+
+<div
+class="menu-overlay"
+id="menuOverlay"
+></div>
+
+
+<!-- =======================================================
+MOBILE MENU
+======================================================= -->
+
+<aside
+class="mobile-menu"
+id="mobileMenu"
+aria-hidden="true"
+>
+
+<div class="mobile-menu-inner">
+
+
+<div class="menu-logo-wrap">
+
+<img
+src="images/pac-logo-orange.png"
+alt="Powered Access Connect"
+class="menu-logo"
+>
+
+</div>
+
+
+<div class="menu-label">
+Operator Network
+</div>
+
+
+<nav
+class="menu-links"
+aria-label="Mobile navigation"
+>
+
+<a
+href="#"
+class="menu-link active"
+>
+<span>Home</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#how-pac-works"
+class="menu-link"
+>
+<span>How PAC Works</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#why-join"
+class="menu-link"
+>
+<span>Why Join PAC</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#experience"
+class="menu-link"
+>
+<span>Operator Experience</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#safety"
+class="menu-link"
+>
+<span>Safety</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#"
+class="menu-link"
+>
+<span>Operator Help</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+<a
+href="#"
+class="menu-link"
+>
+<span>Contact PAC</span>
+<span class="menu-link-arrow">›</span>
+</a>
+
+</nav>
+
+
+<div class="menu-actions">
+
+<a
+href="#"
+class="btn btn-primary btn-full"
+>
+Register as an Operator
+<span class="button-arrow">→</span>
+</a>
+
+<a
+href="#"
+class="btn btn-outline-light btn-full"
+>
+Operator Login
+</a>
+
+</div>
+
+
+<div class="menu-support">
+
+<div class="menu-support-card">
+
+<div class="menu-support-title">
+Already registered?
+</div>
+
+<div class="menu-support-copy">
+Sign in to manage your availability,
+assignments and Operator profile.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+
+<!-- =======================================================
+MAIN
+======================================================= -->
+
+<main id="main-content">
+
+
+<!-- =====================================================
+HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="shell hero-inner">
+
+
+<div class="hero-kicker">
+For Powered Access Operators
+</div>
+
+
+<h1>
+Work on
+<span>your terms.</span>
+</h1>
+
+
+<p class="hero-lead">
+Register your qualifications, machine experience,
+availability and travel area once. Powered Access
+Connect can then connect you with suitable
+powered-access assignments when they become available.
+</p>
+
+
+<div class="hero-actions">
+
+<a
+href="#"
+class="btn btn-primary btn-full"
+>
+Register as an Operator
+<span class="button-arrow">→</span>
+</a>
+
+<a
+href="#"
+class="btn btn-outline-light btn-full"
+>
+Operator Login
+</a>
+
+</div>
+
+
+<div class="hero-benefits">
+
+<div class="hero-benefit">
+<span class="hero-check">✓</span>
+Free registration
+</div>
+
+<div class="hero-benefit">
+<span class="hero-check">✓</span>
+No exclusivity
+</div>
+
+<div class="hero-benefit">
+<span class="hero-check">✓</span>
+Choose your jobs
+</div>
+
+<div class="hero-benefit">
+<span class="hero-check">✓</span>
+Know the rate
+</div>
+
+</div>
+
+
+<!-- HERO BRAND VISUAL -->
+
+<div class="hero-brand-visual">
+
+<div class="hero-orbit"></div>
+
+
+<div class="hero-logo-card">
+
+<img
+src="images/pac-icon-colour.png"
+alt=""
+class="hero-icon"
+>
+
+<div class="hero-icon-label">
+Operator Network
+</div>
+
+</div>
+
+
+<div
+class="hero-float float-one blue"
+>
+
+<div class="hero-float-label">
+Qualifications
+</div>
+
+<div class="hero-float-value">
+Verified
+</div>
+
+</div>
+
+
+<div
+class="hero-float float-two orange"
+>
+
+<div class="hero-float-label">
+Job offers
+</div>
+
+<div class="hero-float-value">
+Your choice
+</div>
+
+</div>
+
+
+<div
+class="hero-float float-three"
+>
+
+<div class="hero-float-label">
+Travel area
+</div>
+
+<div class="hero-float-value">
+You decide
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+QUICK BENEFITS
+===================================================== -->
+
+<section class="quick-benefits">
+
+<div class="quick-benefit-grid">
+
+
+<div class="quick-benefit">
+
+<div class="quick-benefit-icon">
+✓
+</div>
+
+<div class="quick-benefit-title">
+Verified Profile
+</div>
+
+<div class="quick-benefit-copy">
+Qualifications and experience together.
+</div>
+
+</div>
+
+
+<div class="quick-benefit">
+
+<div class="quick-benefit-icon">
+£
+</div>
+
+<div class="quick-benefit-title">
+Know Your Rate
+</div>
+
+<div class="quick-benefit-copy">
+See payment before accepting.
+</div>
+
+</div>
+
+
+<div class="quick-benefit">
+
+<div class="quick-benefit-icon">
+↔
+</div>
+
+<div class="quick-benefit-title">
+No Exclusivity
+</div>
+
+<div class="quick-benefit-copy">
+Another route to suitable work.
+</div>
+
+</div>
+
+
+<div class="quick-benefit">
+
+<div class="quick-benefit-icon">
+◎
+</div>
+
+<div class="quick-benefit-title">
+Safety First
+</div>
+
+<div class="quick-benefit-copy">
+Professional judgement matters.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+HOW PAC WORKS
+===================================================== -->
+
+<section
+class="section section-light"
+id="how-pac-works"
+>
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+How PAC Works
+</div>
+
+<h2 class="section-title">
+Create your profile once.
+Let suitable work find you.
+</h2>
+
+<p class="section-copy">
+PAC is designed to make finding relevant
+powered-access work simpler. Your qualifications,
+actual machine experience, location and availability
+help us identify assignments that genuinely suit you.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<article class="step-card reveal">
+
+<div class="step-number">
+01
+</div>
+
+<div class="step-content">
+
+<div class="step-title">
+Create your PAC profile
+</div>
+
+<div class="step-copy">
+Add your details, IPAF qualifications,
+availability, travel area and machine
+experience.
+</div>
+
+</div>
+
+</article>
+
+
+<article
+class="step-card reveal reveal-delay-1"
+>
+
+<div class="step-number">
+02
+</div>
+
+<div class="step-content">
+
+<div class="step-title">
+PAC matches suitable jobs
+</div>
+
+<div class="step-copy">
+New assignments can be compared with your
+qualifications, experience, location and
+availability.
+</div>
+
+</div>
+
+</article>
+
+
+<article
+class="step-card reveal reveal-delay-2"
+>
+
+<div class="step-number">
+03
+</div>
+
+<div class="step-content">
+
+<div class="step-title">
+Review the assignment
+</div>
+
+<div class="step-copy">
+See the machine, location, date, hours and
+your Operator payment before deciding.
+</div>
+
+</div>
+
+</article>
+
+
+<article
+class="step-card reveal reveal-delay-3"
+>
+
+<div class="step-number">
+04
+</div>
+
+<div class="step-content">
+
+<div class="step-title">
+Accept and complete
+</div>
+
+<div class="step-copy">
+Accept suitable work, attend professionally
+and build your PAC operating record over time.
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WHY JOIN
+===================================================== -->
+
+<section
+class="section section-white"
+id="why-join"
+>
+
+<div class="shell">
+
+
+<div class="why-visual reveal">
+
+<div class="why-visual-grid"></div>
+
+<img
+src="images/pac-icon-white.png"
+alt=""
+>
+
+<div class="why-visual-copy">
+
+<div class="why-visual-title">
+Your experience has value.
+</div>
+
+<div class="why-visual-text">
+PAC is being designed around qualified
+powered-access Operators and the real machines
+they know how to use.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+Why Join PAC
+</div>
+
+<h2 class="section-title">
+Another route to work.
+Without giving up your independence.
+</h2>
+
+<p class="section-copy">
+PAC is intended to complement the work you already
+find through hire companies, agencies, contractors
+and your own contacts.
+</p>
+
+</div>
+
+
+<div class="why-points">
+
+
+<div class="why-point reveal">
+
+<div class="why-point-icon">
+01
+</div>
+
+<div>
+
+<div class="why-point-title">
+Choose the jobs you want
+</div>
+
+<div class="why-point-copy">
+Receiving an opportunity does not oblige you
+to accept it.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="why-point reveal">
+
+<div class="why-point-icon">
+02
+</div>
+
+<div>
+
+<div class="why-point-title">
+Build a verified record
+</div>
+
+<div class="why-point-copy">
+Completed work, machine experience,
+qualifications and reliability can strengthen
+your PAC profile.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="why-point reveal">
+
+<div class="why-point-icon">
+03
+</div>
+
+<div>
+
+<div class="why-point-title">
+Experience can unlock better work
+</div>
+
+<div class="why-point-copy">
+Specialist machines and larger working heights
+can be matched with Operators who have the
+appropriate experience.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="why-point reveal">
+
+<div class="why-point-icon">
+04
+</div>
+
+<div>
+
+<div class="why-point-title">
+Free to register
+</div>
+
+<div class="why-point-copy">
+PAC's initial Operator network is intended
+to be free to join.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+EXPERIENCE MATTERS
+===================================================== -->
+
+<section
+class="section section-dark"
+id="experience"
+>
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+Your Experience Matters
+</div>
+
+<h2 class="section-title">
+A qualification tells us
+what you're qualified for.
+<span class="orange-text">
+Experience tells us more.
+</span>
+</h2>
+
+<p class="section-copy">
+Two Operators can hold the same IPAF category
+but have very different practical experience.
+PAC is intended to record both.
+</p>
+
+</div>
+
+
+<div class="experience-note reveal">
+PAC should never encourage an Operator to accept
+work on a machine they do not feel competent to
+operate. Better information means better matching.
+</div>
+
+
+<div class="experience-grid">
+
+
+<div class="experience-card reveal">
+
+<div class="experience-value">
+Qualification
+</div>
+
+<div class="experience-label">
+IPAF Categories
+</div>
+
+<div class="experience-card-copy">
+Record current qualifications and expiry
+information.
+</div>
+
+</div>
+
+
+<div
+class="experience-card reveal reveal-delay-1"
+>
+
+<div class="experience-value">
+Machine
+</div>
+
+<div class="experience-label">
+Makes & Models
+</div>
+
+<div class="experience-card-copy">
+Tell PAC which machines you have actually
+operated.
+</div>
+
+</div>
+
+
+<div
+class="experience-card reveal reveal-delay-2"
+>
+
+<div class="experience-value">
+Scale
+</div>
+
+<div class="experience-label">
+Working Heights
+</div>
+
+<div class="experience-card-copy">
+Distinguish specialist and larger-machine
+experience.
+</div>
+
+</div>
+
+
+<div
+class="experience-card reveal reveal-delay-3"
+>
+
+<div class="experience-value">
+Sector
+</div>
+
+<div class="experience-label">
+Work History
+</div>
+
+<div class="experience-card-copy">
+Construction, industrial, film, facilities
+and specialist work.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+YOU'RE IN CONTROL
+===================================================== -->
+
+<section class="section section-light">
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+You're In Control
+</div>
+
+<h2 class="section-title">
+See the job before
+you commit to it.
+</h2>
+
+<p class="section-copy">
+PAC is being designed around giving qualified
+Operators enough relevant information to make
+an informed decision before accepting work.
+</p>
+
+</div>
+
+
+<!-- EXAMPLE JOB -->
+
+<div class="assignment-card reveal">
+
+<div class="assignment-top">
+
+<div>
+
+<span class="assignment-badge">
+Example Assignment
+</span>
+
+<div class="assignment-title">
+33m Tracked Boom Operator
+</div>
+
+</div>
+
+<div class="assignment-distance">
+18 miles
+</div>
+
+</div>
+
+
+<div class="assignment-details">
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Machine
+</div>
+
+<div class="assignment-detail-value">
+Hinowa Lightlift 33.17
+</div>
+
+</div>
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Qualification
+</div>
+
+<div class="assignment-detail-value">
+IPAF 1b
+</div>
+
+</div>
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Location
+</div>
+
+<div class="assignment-detail-value">
+Berkshire
+</div>
+
+</div>
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Start
+</div>
+
+<div class="assignment-detail-value">
+07:30
+</div>
+
+</div>
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Duration
+</div>
+
+<div class="assignment-detail-value">
+Standard Shift
+</div>
+
+</div>
+
+
+<div class="assignment-detail">
+
+<div class="assignment-detail-label">
+Sector
+</div>
+
+<div class="assignment-detail-value">
+Construction
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="assignment-pay">
+
+<div>
+
+<div class="assignment-pay-label">
+Operator Payment
+</div>
+
+<div class="assignment-pay-value">
+£280
+</div>
+
+</div>
+
+
+<div class="assignment-actions">
+
+<button
+type="button"
+class="assignment-button"
+>
+Decline
+</button>
+
+<button
+type="button"
+class="assignment-button accept"
+>
+Accept
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="control-list">
+
+
+<div class="control-item reveal">
+
+<div class="control-check">
+✓
+</div>
+
+<div>
+See the machine and qualification requirement.
+</div>
+
+</div>
+
+
+<div class="control-item reveal">
+
+<div class="control-check">
+✓
+</div>
+
+<div>
+See the location, date and expected working hours.
+</div>
+
+</div>
+
+
+<div class="control-item reveal">
+
+<div class="control-check">
+✓
+</div>
+
+<div>
+See your Operator payment before accepting.
+</div>
+
+</div>
+
+
+<div class="control-item reveal">
+
+<div class="control-check">
+✓
+</div>
+
+<div>
+Decline work that does not suit your availability,
+travel plans or experience.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+SAFETY
+===================================================== -->
+
+<section
+class="section section-dark"
+id="safety"
+>
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+Built Around Safe Operation
+</div>
+
+<h2 class="section-title">
+Doing the safe thing
+should never count against you.
+</h2>
+
+<p class="section-copy">
+PAC wants professional judgement and responsible
+powered-access operation to form part of an
+Operator's reputation.
+</p>
+
+<p class="safety-statement">
+A genuine refusal to operate because conditions
+are unsafe should be treated as a
+<strong>
+professional safety decision
+</strong>
+— not a no-show.
+</p>
+
+</div>
+
+
+<div class="safety-panel reveal">
+
+<div class="safety-panel-title">
+Operators should be able to stop and report:
+</div>
+
+
+<div class="safety-list">
+
+
+<div class="safety-item">
+
+<div class="safety-icon">
+✓
+</div>
+
+<div>
+Machine defects or concerns identified during
+appropriate pre-use checks.
+</div>
+
+</div>
+
+
+<div class="safety-item">
+
+<div class="safety-icon">
+✓
+</div>
+
+<div>
+Ground conditions that appear unsuitable for
+safe operation.
+</div>
+
+</div>
+
+
+<div class="safety-item">
+
+<div class="safety-icon">
+✓
+</div>
+
+<div>
+Missing or inadequate site arrangements that
+materially affect safe MEWP operation.
+</div>
+
+</div>
+
+
+<div class="safety-item">
+
+<div class="safety-icon">
+✓
+</div>
+
+<div>
+Requests to operate beyond machine limits
+or outside the Operator's competence.
+</div>
+
+</div>
+
+
+<div class="safety-item">
+
+<div class="safety-icon">
+✓
+</div>
+
+<div>
+Accidents, near misses and significant safety
+events requiring PAC attention.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MACHINE / WORK CATEGORIES
+===================================================== -->
+
+<section class="section section-white">
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+Powered Access Experience
+</div>
+
+<h2 class="section-title">
+Built for a broad
+Operator network.
+</h2>
+
+<p class="section-copy">
+PAC is intended to build a UK network covering
+different machine categories, working heights
+and operating environments.
+</p>
+
+</div>
+
+
+<div class="category-list">
+
+
+<article class="category-card reveal">
+
+<div class="category-index">
+01
+</div>
+
+<div class="category-title">
+Scissor Lifts
+</div>
+
+<div class="category-copy">
+Operators with relevant mobile vertical
+powered-access qualifications and practical
+experience.
+</div>
+
+</article>
+
+
+<article class="category-card reveal">
+
+<div class="category-index">
+02
+</div>
+
+<div class="category-title">
+Boom Lifts
+</div>
+
+<div class="category-copy">
+Self-propelled boom experience across
+construction, industrial and commercial work.
+</div>
+
+</article>
+
+
+<article class="category-card reveal">
+
+<div class="category-index">
+03
+</div>
+
+<div class="category-title">
+Tracked Booms
+</div>
+
+<div class="category-copy">
+Specialist static boom and tracked-access
+experience, including larger working heights.
+</div>
+
+</article>
+
+
+<article class="category-card reveal">
+
+<div class="category-index">
+04
+</div>
+
+<div class="category-title">
+Specialist Access
+</div>
+
+<div class="category-copy">
+Experienced Operators for unusual machines,
+sectors and higher-value assignments.
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+REGISTER ONCE
+===================================================== -->
+
+<section class="section section-light">
+
+<div class="shell">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+Register Once
+</div>
+
+<h2 class="section-title">
+One registration creates
+your PAC Operator profile.
+</h2>
+
+<p class="section-copy">
+We don't want Operators repeatedly entering the
+same information every time suitable work appears.
+</p>
+
+</div>
+
+
+<div class="registration-grid">
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+01
+</div>
+
+<div class="registration-title">
+Personal Details
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+02
+</div>
+
+<div class="registration-title">
+Contact Details
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+03
+</div>
+
+<div class="registration-title">
+Location
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+04
+</div>
+
+<div class="registration-title">
+IPAF Qualifications
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+05
+</div>
+
+<div class="registration-title">
+Availability
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+06
+</div>
+
+<div class="registration-title">
+Work / Travel Area
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+07
+</div>
+
+<div class="registration-title">
+Machine Experience
+</div>
+
+</div>
+
+
+<div class="registration-card reveal">
+
+<div class="registration-number">
+08
+</div>
+
+<div class="registration-title">
+Supporting Documents
+</div>
+
+</div>
+
+
+</div>
+
+
+<p class="registration-detail reveal">
+Keep your profile accurate as your qualifications,
+availability and experience change. Better information
+should mean better-quality job matching.
+</p>
+
+
+<div class="registration-button reveal">
+
+<a
+href="#"
+class="btn btn-primary btn-full"
+>
+Start Operator Registration
+<span class="button-arrow">→</span>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+CONNECTION BRAND PANEL
+
+Uses pac-connect-logo.png
+and pac-connect-mark.png.
+
+This deliberately gives the CONNECT branding its own
+role rather than forcing it into the main header.
+===================================================== -->
+
+<section class="section section-white">
+
+<div class="shell">
+
+<div class="connection-panel reveal">
+
+
+<img
+src="images/pac-connect-mark.png"
+alt=""
+class="connection-mark"
+>
+
+
+<div class="connection-content">
+
+
+<img
+src="images/pac-connect-logo.png"
+alt="Connect"
+class="connection-logo"
+>
+
+
+<div class="connection-title">
+One network.
+More opportunity.
+</div>
+
+
+<div class="connection-copy">
+PAC is being built to connect qualified
+powered-access Operators with Customers and
+hire companies that need reliable professional
+Operator support.
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+<div class="shell final-cta-inner">
+
+
+<img
+src="images/pac-icon-colour.png"
+alt=""
+class="final-cta-icon"
+>
+
+
+<h2 class="final-cta-title">
+Qualified powered-access Operator?
+<span class="orange-text">
+Build your PAC profile.
+</span>
+</h2>
+
+
+<p class="final-cta-copy">
+Join the developing Powered Access Connect
+Operator network. Register your qualifications
+and experience once and make yourself available
+for suitable assignments.
+</p>
+
+
+<div class="final-cta-actions">
+
+<a
+href="#"
+class="btn btn-primary btn-full"
+>
+Register Now
+<span class="button-arrow">→</span>
+</a>
+
+<a
+href="#"
+class="btn btn-outline-light btn-full"
+>
+Operator Login
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =======================================================
+MOBILE FOOTER
+======================================================= -->
+
+<footer class="site-footer">
+
+
+<!-- BRAND -->
+
+<div class="footer-brand">
+
+<div class="shell">
+
+
+<img
+src="images/pac-logo-blue-orange.png"
+alt="Powered Access Connect"
+class="footer-main-logo"
+>
+
+
+<p class="footer-brand-copy">
+Connecting qualified powered-access Operators with
+Customers and hire companies requiring professional
+Operator support across the UK.
+</p>
+
+
+<img
+src="images/pac-connect-logo.png"
+alt=""
+class="footer-connect-logo"
+>
+
+
+</div>
+
+</div>
+
+
+<!-- FOOTER LINK ACCORDIONS -->
+
+<div class="footer-groups">
+
+<div class="shell">
+
+
+<!-- OPERATORS -->
+
+<div class="footer-group">
+
+<button
+type="button"
+class="footer-group-button"
+aria-expanded="false"
+>
+
+<span>
+Operators
+</span>
+
+<span class="footer-plus"></span>
+
+</button>
+
+
+<div class="footer-group-content">
+
+<div class="footer-links">
+
+<a
+href="#"
+class="footer-link"
+>
+Operator Homepage
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Register as an Operator
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Operator Login
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Operator Dashboard
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Available Jobs
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+My Assignments
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Earnings & Payments
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUPPORT -->
+
+<div class="footer-group">
+
+<button
+type="button"
+class="footer-group-button"
+aria-expanded="false"
+>
+
+<span>
+Support
+</span>
+
+<span class="footer-plus"></span>
+
+</button>
+
+
+<div class="footer-group-content">
+
+<div class="footer-links">
+
+<a
+href="#"
+class="footer-link"
+>
+Operator Help / FAQs
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Report a Problem
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Report a Safety Issue
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Emergency Support
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Contact PAC
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAC -->
+
+<div class="footer-group">
+
+<button
+type="button"
+class="footer-group-button"
+aria-expanded="false"
+>
+
+<span>
+Powered Access Connect
+</span>
+
+<span class="footer-plus"></span>
+
+</button>
+
+
+<div class="footer-group-content">
+
+<div class="footer-links">
+
+<a
+href="#"
+class="footer-link"
+>
+About PAC
+</a>
+
+<a
+href="#how-pac-works"
+class="footer-link"
+>
+How PAC Works
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Customer Website
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Hire Companies
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Careers
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LEGAL -->
+
+<div class="footer-group">
+
+<button
+type="button"
+class="footer-group-button"
+aria-expanded="false"
+>
+
+<span>
+Legal
+</span>
+
+<span class="footer-plus"></span>
+
+</button>
+
+
+<div class="footer-group-content">
+
+<div class="footer-links">
+
+<a
+href="#"
+class="footer-link"
+>
+Operator Terms & Conditions
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Privacy Policy
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Cookie Policy
+</a>
+
+<a
+href="#"
+class="footer-link"
+>
+Accessibility
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="footer-group">
+
+<button
+type="button"
+class="footer-group-button"
+aria-expanded="false"
+>
+
+<span>
+Contact
+</span>
+
+<span class="footer-plus"></span>
+
+</button>
+
+
+<div class="footer-group-content">
+
+
+<div class="footer-contact-line">
+
+<span class="footer-contact-label">
+Operator Support
+</span>
+
+<span class="footer-contact-value">
+Details to be confirmed
+</span>
+
+</div>
+
+
+<div class="footer-contact-line">
+
+<span class="footer-contact-label">
+General Enquiries
+</span>
+
+<span class="footer-contact-value">
+Details to be confirmed
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- LOWER FOOTER -->
+
+<div class="footer-legal">
+
+<div class="shell">
+
+
+<div class="footer-legal-links">
+
+<a href="#">
+Operator Terms
+</a>
+
+<a href="#">
+Privacy
+</a>
+
+<a href="#">
+Cookies
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+
+<div class="footer-copyright">
+© <span id="currentYear"></span>
+Powered Access Connect.
+All rights reserved.
+</div>
+
+
+</div>
+
+</div>
+
+
+</footer>
+
+
+<!-- =======================================================
+STICKY REGISTER CTA
+
+Appears after scrolling beyond the opening hero.
+======================================================= -->
+
+<div
+class="mobile-register-bar"
+id="mobileRegisterBar"
+>
+
+<a href="#">
+Register as an Operator
+<span>→</span>
+</a>
+
+</div>
+
+
+<!-- =======================================================
+JAVASCRIPT
+======================================================= -->
+
+<script>
+/* =========================================================
+POWERED ACCESS CONNECT
+MOBILE HOMEPAGE JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+01. CURRENT YEAR
+========================================================= */
+
+const currentYear =
+document.getElementById("currentYear");
+
+if (currentYear) {
+currentYear.textContent =
+new Date().getFullYear();
+}
+
+
+/* =========================================================
+02. MOBILE MENU
+========================================================= */
+
+const menuButton =
+document.getElementById("menuButton");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+const menuOverlay =
+document.getElementById("menuOverlay");
+
+
+function openMenu() {
+
+document.body.classList.add(
+"menu-open"
+);
+
+menuButton.classList.add(
+"open"
+);
+
+mobileMenu.classList.add(
+"open"
+);
+
+menuOverlay.classList.add(
+"open"
+);
+
+menuButton.setAttribute(
+"aria-expanded",
+"true"
+);
+
+menuButton.setAttribute(
+"aria-label",
+"Close navigation"
+);
+
+mobileMenu.setAttribute(
+"aria-hidden",
+"false"
+);
+
+}
+
+
+function closeMenu() {
+
+document.body.classList.remove(
+"menu-open"
+);
+
+menuButton.classList.remove(
+"open"
+);
+
+mobileMenu.classList.remove(
+"open"
+);
+
+menuOverlay.classList.remove(
+"open"
+);
+
+menuButton.setAttribute(
+"aria-expanded",
+"false"
+);
+
+menuButton.setAttribute(
+"aria-label",
+"Open navigation"
+);
+
+mobileMenu.setAttribute(
+"aria-hidden",
+"true"
+);
+
+}
+
+
+function toggleMenu() {
+
+if (
+mobileMenu.classList.contains(
+"open"
+)
+) {
+closeMenu();
+} else {
+openMenu();
+}
+
+}
+
+
+menuButton.addEventListener(
+"click",
+toggleMenu
+);
+
+
+menuOverlay.addEventListener(
+"click",
+closeMenu
+);
+
+
+document.addEventListener(
+"keydown",
+function(event) {
+
+if (
+event.key === "Escape" &&
+mobileMenu.classList.contains(
+"open"
+)
+) {
+closeMenu();
+}
+
+}
+);
+
+
+/* Close drawer when a real in-page
+navigation item is selected. */
+
+mobileMenu
+.querySelectorAll('a[href^="#"]')
+.forEach((link) => {
+
+link.addEventListener(
+"click",
+() => {
+
+const href =
+link.getAttribute("href");
+
+if (
+href &&
+href !== "#"
+) {
+closeMenu();
+}
+
+}
+);
+
+});
+
+
+/* =========================================================
+03. FOOTER ACCORDIONS
+========================================================= */
+
+const footerGroups =
+document.querySelectorAll(
+".footer-group"
+);
+
+
+footerGroups.forEach(
+(group) => {
+
+const button =
+group.querySelector(
+".footer-group-button"
+);
+
+const content =
+group.querySelector(
+".footer-group-content"
+);
+
+
+button.addEventListener(
+"click",
+() => {
+
+const isOpen =
+group.classList.contains(
+"open"
+);
+
+
+/*
+Close other footer groups first.
+
+This keeps the mobile footer clean and prevents
+several very long groups being open at once.
+*/
+
+footerGroups.forEach(
+(otherGroup) => {
+
+if (
+otherGroup === group
+) {
+return;
+}
+
+const otherButton =
+otherGroup.querySelector(
+".footer-group-button"
+);
+
+const otherContent =
+otherGroup.querySelector(
+".footer-group-content"
+);
+
+otherGroup.classList.remove(
+"open"
+);
+
+otherButton.setAttribute(
+"aria-expanded",
+"false"
+);
+
+otherContent.style.maxHeight =
+null;
+
+}
+);
+
+
+if (isOpen) {
+
+group.classList.remove(
+"open"
+);
+
+button.setAttribute(
+"aria-expanded",
+"false"
+);
+
+content.style.maxHeight =
+null;
+
+} else {
+
+group.classList.add(
+"open"
+);
+
+button.setAttribute(
+"aria-expanded",
+"true"
+);
+
+content.style.maxHeight =
+content.scrollHeight +
+"px";
+
+}
+
+}
+);
+
+}
+);
+
+
+/* =========================================================
+04. SCROLL REVEALS
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(
+".reveal"
+);
+
+
+if (
+"IntersectionObserver"
+in window
+) {
+
+const revealObserver =
+new IntersectionObserver(
+(entries, observer) => {
+
+entries.forEach(
+(entry) => {
+
+if (
+!entry.isIntersecting
+) {
+return;
+}
+
+entry.target
+.classList
+.add("visible");
+
+observer.unobserve(
+entry.target
+);
+
+}
+);
+
+},
+{
+threshold: 0.10,
+rootMargin:
+"0px 0px -35px 0px"
+}
+);
+
+
+revealElements.forEach(
+(element) => {
+
+revealObserver.observe(
+element
+);
+
+}
+);
+
+} else {
+
+revealElements.forEach(
+(element) => {
+
+element.classList.add(
+"visible"
+);
+
+}
+);
+
+}
+
+
+/* =========================================================
+05. STICKY REGISTER CTA
+========================================================= */
+
+const registerBar =
+document.getElementById(
+"mobileRegisterBar"
+);
+
+const hero =
+document.querySelector(
+".hero"
+);
+
+const footer =
+document.querySelector(
+".site-footer"
+);
+
+
+function updateRegisterBar() {
+
+if (
+!registerBar ||
+!hero
+) {
+return;
+}
+
+
+const heroBottom =
+hero.getBoundingClientRect()
+.bottom;
+
+
+let footerVisible =
+false;
+
+
+if (footer) {
+
+const footerTop =
+footer.getBoundingClientRect()
+.top;
+
+footerVisible =
+footerTop <
+window.innerHeight - 60;
+
+}
+
+
+if (
+heroBottom < 70 &&
+!footerVisible &&
+!mobileMenu.classList.contains(
+"open"
+)
+) {
+
+registerBar.classList.add(
+"visible"
+);
+
+} else {
+
+registerBar.classList.remove(
+"visible"
+);
+
+}
+
+}
+
+
+window.addEventListener(
+"scroll",
+updateRegisterBar,
+{
+passive: true
+}
+);
+
+
+window.addEventListener(
+"resize",
+updateRegisterBar
+);
+
+
+menuButton.addEventListener(
+"click",
+() => {
+
+setTimeout(
+updateRegisterBar,
+10
+);
+
+}
+);
+
+
+updateRegisterBar();
+
+
+/* =========================================================
+06. PLACEHOLDER LINKS
+
+"#" links are intentionally inactive until the PAC
+pages are created.
+
+Real section links such as #safety continue to work.
+========================================================= */
+
+document
+.querySelectorAll(
+'a[href="#"]'
+)
+.forEach((link) => {
+
+link.addEventListener(
+"click",
+(event) => {
+
+event.preventDefault();
+
+}
+);
+
+});
+
+
+/* =========================================================
+END PAC MOBILE HOMEPAGE SCRIPT
+========================================================= */
+</script>
+
+</body>
+</html>
